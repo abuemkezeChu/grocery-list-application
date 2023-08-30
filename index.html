@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/styles/index.css">
   <title>Grocery List Application</title>
 </head>
+
 <body>
+  <main class="container">
+    <h1 class="title">Grocery List Application</h1>
+    <div class="input-container">
+      <input type="text" id="new-item">
+      <button id="add-item">Add</button>
+    </div>
+    <div class="item-card">
+      <div class="item-label">
+        <output>New Item Added</output>
+      </div>
+      <div class="btns">
+        <button id="edit-item">Edit</button>
+        <button id="delete-item">Remove</button>
+      </div>
+    </div>
+  </main>
   <script src="assets/scripts/index.js"></script>
 </body>
+
 </html>
