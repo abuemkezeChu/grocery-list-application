@@ -24,7 +24,7 @@ body {
   margin: 0 auto;
   padding: 2rem 0;
   gap: 1rem;
-  box-shadow: #0026 0px 5px 15px 0px;
+  box-shadow: #0026 0 5px 15px 0;
 }
 
 .input-container {
@@ -35,7 +35,7 @@ body {
   padding: 0.5rem;
   width: 70%;
   gap: 0.5rem;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 0.2rem;
 }
 
@@ -56,7 +56,7 @@ input {
 
 button {
   border: none;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem;
   cursor: pointer;
   background-color: #f8a925;
   border-radius: 0.2rem;
