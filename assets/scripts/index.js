@@ -2,8 +2,6 @@
 
 const newItemInput = document.getElementById('new-item') // input field
 const addBtn = document.getElementById('add-item')
-const editBtn = document.getElementById('edit-item')
-const delBtn = document.getElementById('delete-item')
 const itemCard = document.querySelector('.item-card')
 
 const listItems = []
@@ -15,16 +13,6 @@ const addItem = (newItem) => {
 
 // return item to view
 const displayItems = () => {
-  // addItem(newItem.value)
-  // itemCard.innerHTML +=
-  //     ` <div class="item-label">
-  //         <output>${listItems}</output>
-  //       </div>
-  //       <div class="btn">
-  //         <button id="edit-item">Edit</button>
-  //         <button id="delete-item">Remove</button>
-  //       </div>
-  //     `
   itemCard.innerHTML = ''
   listItems.forEach((item) => {
     const itemDiv = document.createElement('div')
@@ -49,7 +37,6 @@ const displayItems = () => {
     itemDiv.appendChild(itemLabel)
     itemDiv.appendChild(btnDiv)
     itemCard.appendChild(itemDiv)
-
   })
   newItemInput.value = ''
 }
