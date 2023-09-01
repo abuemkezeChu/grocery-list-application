@@ -6,6 +6,16 @@ const itemCard = document.querySelector('.item-card')
 
 const listItems = []
 
+// edit item at index
+const editItem = (item, newItem) => {
+  listItems[item] = newItem
+}
+
+// remove item from list at index
+const removeItem = (item) => {
+  listItems.splice(item, 1)
+}
+
 // add item to list
 const addItem = (newItem) => {
   listItems.push(newItem)
@@ -14,29 +24,16 @@ const addItem = (newItem) => {
 // return item to view
 const displayItems = () => {
   itemCard.innerHTML = ''
-  listItems.forEach((item) => {
-    const itemDiv = document.createElement('div')
-    itemDiv.classList.add('item')
-
-    const itemLabel = document.createElement('div') // display item name
-    itemLabel.classList.add('item-label')
-    itemLabel.textContent = item
-
-    const btnDiv = document.createElement('div')
-    btnDiv.classList.add('btn')
-
-    const editBtn = document.createElement('button')
-    editBtn.textContent = 'edit'
-
-    const delBtn = document.createElement('button')
-    delBtn.textContent = 'remove'
-
-    btnDiv.appendChild(editBtn)
-    btnDiv.appendChild(delBtn)
-
-    itemDiv.appendChild(itemLabel)
-    itemDiv.appendChild(btnDiv)
-    itemCard.appendChild(itemDiv)
+  listItems.forEach((item, index) => {
+    itemCard.innerHTML += `
+    <div class="item">
+      <div class="item-label">${item}</div>
+        <div class="btn">
+          <button class="edit-btn" id="edit-btn" data-index = "${index}">edit</button>
+          <button class="del-btn" id="del-btn" data-index = "${index}">remove</button>
+      </div>
+    </div>
+    `
   })
   newItemInput.value = ''
 }
@@ -46,5 +43,26 @@ addBtn.addEventListener('click', () => {
   if (newItemValue) {
     addItem(newItemValue)
     displayItems()
+  }
+})
+
+// event listener for delete button
+itemCard.addEventListener('click', (event) => {
+  if (event.target.classList.contains('del-btn')) {
+    const itemIndex = parseInt(event.target.getAttribute('data-index'))
+    removeItem(itemIndex)
+    displayItems()
+  }
+})
+
+// event listener for edit button
+itemCard.addEventListener('click', (event) => {
+  if (event.target.classList.contains('edit-btn')) {
+    const itemIndex = parseInt(event.target.getAttribute('data-index'))
+    const newItemValue = newItemInput.value
+    if (newItemValue) {
+      editItem(itemIndex, newItemValue)
+      displayItems()
+    }
   }
 })
